@@ -19,7 +19,7 @@ public class DingMessageBuilder{
         /**
          * 文本内容
          *
-         * @return
+         * @return TextStep
          */
         TextStep text();
 
@@ -27,21 +27,21 @@ public class DingMessageBuilder{
         /**
          * 链接文本
          *
-         * @return
+         * @return LinkTextStep
          */
         LinkTextStep link();
 
         /**
          * markdown 内容
          *
-         * @return
+         * @return MarkdownStep
          */
         MarkdownStep markdown();
 
         /**
          * 事件卡片
          *
-         * @return
+         * @return ActionCardStep
          */
         ActionCardStep actionCard();
 
@@ -49,7 +49,7 @@ public class DingMessageBuilder{
         /**
          * 自由卡片
          *
-         * @return
+         * @return FeedCardStep
          */
         FeedCardStep feedCard();
 
@@ -67,22 +67,23 @@ public class DingMessageBuilder{
         /**
          * 通过手机号
          *
-         * @param phone
-         * @return
+         * @param phone 手机号
+         * @return AtStep
          */
         AtStep byMobiles(String... phone);
 
         /**
          * 通过手机号
          *
-         * @param userIds
-         * @return
+         * @param userIds 钉钉用户id,需要用企业相关api才能获取到
+         * @return AtStep
          */
         AtStep byUserIds(String... userIds);
 
 
-        /***
-         * 错误
+        /**
+         *  at 全部
+         * @return BuildStep
          */
         BuildStep all();
     }
@@ -93,15 +94,17 @@ public class DingMessageBuilder{
         /**
          * 文本内容
          *
-         * @param content
-         * @return
+         * @param content 文本内容
+         * @return TextStep
          */
         TextStep content(String content);
 
 
         /**
-         * @return
-         * @ 谁
+         *  at  谁
+         *
+         * @return  AtStep
+         *
          */
         AtStep at();
 
@@ -109,7 +112,7 @@ public class DingMessageBuilder{
         /**
          * 不 at
          *
-         * @return
+         * @return BuildStep
          */
         BuildStep noAt();
 
@@ -123,7 +126,7 @@ public class DingMessageBuilder{
          *
          * @param title   标题
          * @param content 内容
-         * @return
+         * @return LinkTextStep
          */
         LinkTextStep content(String title, String content);
 
@@ -131,9 +134,9 @@ public class DingMessageBuilder{
         /**
          * 链接地址
          *
-         * @param linkUrl
+         * @param linkUrl 链接地址
          * @param pcSlide 是否在侧边栏打开
-         * @return
+         * @return LinkTextStep
          */
         LinkTextStep link(String linkUrl, boolean pcSlide);
 
@@ -141,16 +144,16 @@ public class DingMessageBuilder{
         /**
          * 图片内容
          *
-         * @param imageUrl
-         * @return
+         * @param imageUrl 图片地址
+         * @return LinkTextStep
          */
         LinkTextStep image(String imageUrl);
 
 
         /**
-         * at
+         *  不进行 at
          *
-         * @return
+         * @return BuildStep
          */
         BuildStep noAt();
     }
@@ -163,21 +166,23 @@ public class DingMessageBuilder{
          *
          * @param title   标题
          * @param content 内容
-         * @return
+         * @return MarkdownStep
          */
         MarkdownStep contentMarkdown(String title, String content);
 
         /**
          * at
          *
-         * @return
+         * @return BuildStep
          */
         BuildStep noAt();
 
 
         /**
-         * @return
-         * @ 谁
+         *  at 对应的人
+         *
+         * @return AtStep
+         *
          */
         AtStep at();
 
@@ -190,25 +195,25 @@ public class DingMessageBuilder{
          *
          * @param title   标题
          * @param content 内容
-         * @return
+         * @return ActionCardStep
          */
         ActionCardStep actionContent(String title, String content);
 
         /**
          * 单按钮
          *
-         * @param singleTitle
-         * @param singleURL
-         * @param btnOrientation
-         * @return
+         * @param singleTitle 按钮标题
+         * @param singleURL  跳转地址
+         * @param btnOrientation 横放(true)/竖放(false)
+         * @return BuildStep
          */
         BuildStep singleButton(String singleTitle, String singleURL, boolean btnOrientation);
 
         /**
          * 多按钮
          *
-         * @param action
-         * @return
+         * @param action 按钮
+         * @return BuildStep
          */
         BuildStep moreButton(List<ActionButton> action);
 

@@ -50,10 +50,10 @@ public class DingRobotClient {
     }
 
     /**
-     * 发送消息
-     *
-     * @param message
-     * @return
+     *  发送消息
+     * @param message 信息内容
+     * @return 是否成功
+     * @throws IOException  网络io异常
      */
     public boolean sendMessage(DingMessage message) throws IOException {
         MediaType json = MediaType.parse("application/json; charset=utf-8");
@@ -99,8 +99,8 @@ public class DingRobotClient {
         /**
          * 地址
          *
-         * @param url
-         * @return
+         * @param url 机器人URL
+         * @return BuildStep
          */
         BuildStep url(String url);
 
@@ -112,8 +112,8 @@ public class DingRobotClient {
         /**
          * 带秘钥
          *
-         * @param secret
-         * @return
+         * @param secret 秘钥
+         * @return BuildStep
          */
         BuildStep secret(String secret);
 
