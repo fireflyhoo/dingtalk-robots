@@ -3,6 +3,19 @@
 
 
 
+### Maven Centre 坐标
+
+```xml
+
+<dependency>
+  <groupId>com.fireflyhoo</groupId>
+  <artifactId>dingtalk-robots</artifactId>
+  <version>1.0-RELEASE</version>
+</dependency>
+
+```
+
+
 ### 文本消息
 
 ```java
