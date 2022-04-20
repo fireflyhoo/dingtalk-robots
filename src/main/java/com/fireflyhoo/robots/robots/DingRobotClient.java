@@ -57,10 +57,10 @@ public class DingRobotClient {
      */
     public boolean sendMessage(DingMessage message) throws IOException {
         MediaType json = MediaType.parse("application/json; charset=utf-8");
-        Request.Builder request = new Request.Builder().url(getSignedUrl()).post(RequestBody.create(gson.toJson(message), json));
+        Request.Builder request = new Request.Builder().url(getSignedUrl()).post(RequestBody.create(json,gson.toJson(message)));
         Call call = okHttpClient.newCall(request.build());
         Response resp = call.execute();
-        LOGGER.info(resp.message());
+        LOGGER.info(resp.body().string());
         if (resp.isSuccessful()) {
             return true;
         }
